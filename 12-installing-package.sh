@@ -24,7 +24,7 @@ then
      echo "please run this script with root access"
      exit1
 else "you are root user."
-if
+fi
 
 for i in $@
 do
