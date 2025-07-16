@@ -17,14 +17,14 @@ if [ $? -n 0 ]
 then
    echo "Installation of MySQL...FAILURE"
    exit1
-   
+
  else
    echo "Installation of MySQL...SUCCESS"
 fi
 
 dnf install git -y
 
-if[ $? -n 0 ]
+if [ $? -n 0 ]
 then 
     echo "Installation of Git...FAILURE"
     exit1
