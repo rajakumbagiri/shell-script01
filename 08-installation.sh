@@ -11,16 +11,18 @@ else
     echo "you are super user."
 fi
 
-dnf install -y
+dnf install mysql -y
+
 if [ $? -n 0 ]
    echo "Installation of MySQL...FAILURE"
    exit1
-   
+
 else 
    echo "Installation of MySQL...SUCCESS"
 fi
 
 dnf install git -y
+
 if[ $? -n 0 ]
 then 
     echo "Installation of Git...FAILURE"
