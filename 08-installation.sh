@@ -15,6 +15,7 @@ dnf install -y
 if [ $? -n 0 ]
    echo "Installation of MySQL...FAILURE"
    exit1
+   
 else 
    echo "Installation of MySQL...SUCCESS"
 fi
@@ -24,6 +25,7 @@ if[ $? -n 0 ]
 then 
     echo "Installation of Git...FAILURE"
     exit1
+
 else
     echo "Installation Git...SUCCESS"
 fi
