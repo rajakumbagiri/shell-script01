@@ -23,7 +23,8 @@ if [ $USERID -ne 0 ]
 then
      echo "please run this script with root access"
      exit1
-else "you are root user."
+else 
+     echo "you are root user."
 fi
 
 for i in $@
