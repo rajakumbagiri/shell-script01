@@ -1,22 +1,30 @@
 #!/bin/bash
 
 USERID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 VALIDATE(){
-    echo "exit status: $1"
-    echo "any message: $2"
+   if [ $1 -ne 0 ]
+   then
+        echo "$2...FAILURE"
+        exit 1
+    else
+        echo "$2...SUCCESS"
+    fi
 }
 
-if [ $USERID -n 0 ]
-then 
-    echo "please run with root access"
-    exit1
-    else
-    echo "you are super user"
+if [ $USERID -ne 0 ]
+then
+    echo "Please run this script with root access."
+    exit 1 # manually exit if error comes.
+else
+    echo "You are super user."
 fi
 
-dnf install mysql -y
+dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL"
 
-dnf install git -y
+dnf install git -y &>>$LOGFILE
 VALIDATE $? "Installing Git"
