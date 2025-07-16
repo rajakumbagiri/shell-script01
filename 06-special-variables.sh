@@ -9,3 +9,4 @@ echo "Home directory of current user: $HOME"
 echo "Host name: $HOSTNAME"
 echo "Process ID of current Shell script: $$"
 sleep 60
+echo "process ID of last background command: $!"
