@@ -28,15 +28,14 @@ if
 
 for i in $@
 do
-   echo "package to install: $!"
-   dnf list installed $! &>>LOGFILE
+    echo "package to install: $!"
+    dnf list installed $! &>>LOGFILE
 
-   if [ $? -eq 0 ]
-   then
-       echo -e "$i already installed ..$Y SKIPPING $N"
-    else
-       dnf install $i -y &>>LOGFILE
-       VALIDATE $? "Install of $i"
-   fi
-
+    if [ $? -eq 0 ]
+    then
+        echo -e "$i already installed ..$Y SKIPPING $N"
+     else
+        dnf install $i -y &>>LOGFILE
+        VALIDATE $? "Install of $i"
+    fi
 done
